@@ -19,7 +19,11 @@ import {
   PropertyMetadataString,
 } from "./interfaces";
 
+import {EufyCamC35} from "./devices/cameras/eufyCamC35";
+
 export type SourceType = "p2p" | "http" | "push" | "mqtt";
+
+
 
 // The structure of a specific Camera
 export interface CameraDevice {
@@ -37,6 +41,11 @@ export interface CameraDevice {
   hasMicrophone: boolean;
   hasSpeaker: boolean;
 }
+
+
+export const AvailableDevices: CameraDevice[] = [
+  EufyCamC35
+];
 
 export enum DeviceType {
   //List retrieved from com.oceanwing.battery.cam.binder.model.QueryDeviceData
@@ -1064,17 +1073,7 @@ export const BaseDeviceProperties: IndexedProperty = {
   [GenericSWVersionProperty.name]: GenericSWVersionProperty,
 };
 
-export const GenericDeviceProperties: IndexedProperty = {
-  ...BaseDeviceProperties,
-  [PropertyName.DeviceStationSN]: {
-    key: "station_sn",
-    name: PropertyName.DeviceStationSN,
-    label: "Station serial number",
-    readable: true,
-    writeable: false,
-    type: "string",
-  },
-};
+
 
 export const DeviceBatteryProperty: PropertyMetadataNumeric = {
   key: CommandType.CMD_GET_BATTERY,
@@ -11401,4 +11400,29 @@ export const StationCommands: Commands = {
   [DeviceType.SMART_TRACK_CARD]: [],
   [DeviceType.SMART_TRACK_LINK]: [],
   [DeviceType.SMART_DROP]: [],
+};
+
+
+export const GenericDeviceProperties: IndexedProperty = {
+  ...BaseDeviceProperties,
+  [PropertyName.DeviceStationSN]: {
+    key: "station_sn",
+    name: PropertyName.DeviceStationSN,
+    label: "Station serial number",
+    readable: true,
+    writeable: false,
+    type: "string",
+  },
+};
+
+export const GenericDeviceCameraProperties: IndexedProperty = {
+  ...BaseDeviceProperties,
+  [PropertyName.DevicePicture]: DevicePictureProperty,
+  [PropertyName.DevicePictureUrl]: DevicePictureUrlProperty,
+  [PropertyName.DeviceImageMirrored]: DeviceImageMirroredProperty,
+  [PropertyName.DeviceStatusLed]: DeviceStatusLedProperty,
+  [PropertyName.DeviceRTSPStream]: DeviceRTSPStreamProperty,
+  [PropertyName.DeviceRTSPStreamUrl]: DeviceRTSPStreamUrlProperty,
+  [PropertyName.DeviceWatermark]: DeviceWatermarkProperty,
+
 };
