@@ -98,7 +98,7 @@ export enum DeviceType {
   WALL_LIGHT_CAM_81A0 = 10005,
   INDOOR_PT_CAMERA_C220 = 10008, // T8W11C
   INDOOR_PT_CAMERA_C210 = 10009, // T8419 / T8W11P?
-  INDOOR_PT_CAMERA_C220_V2 = 10010, // T8W11C (Type 10010)
+  INDOOR_PT_CAMERA_C220_V2 = 10022210, // T8W11C (Type 10010)
   CAMERA_C35 = 10035, //T8110
 }
 
@@ -1050,7 +1050,7 @@ export const GenericTypeProperty: PropertyMetadataNumeric = {
     10005: "Solar Wall Light Cam S120 (T81A0)",
     10008: "Indoor Cam C220 (T8W11C)",
     10009: "Indoor Cam C210 (T8419)",
-    10010: "Indoor Cam C220 (T8W11C)",
+    100222210: "Indoor Cam C220 (T8W11C)",
     10035: "eufyCam C35 (T8110)",
   },
 };
